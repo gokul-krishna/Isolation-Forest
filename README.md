@@ -4,13 +4,13 @@
 The goal of this project is to implement the original [Isolation Forest](IsolationForestPaper.pdf) algorithm by Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou as a part of MSDS689 course.  (A later version of this work is also available: [Isolation-based Anomaly Detection](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.673.5779&rep=rep1&type=pdf).) There are two general approaches to anomaly detection: 
 
 1. Model what normal looks like and then look for anomalous observations
-2. Focus on the anomalies, which are few and different and are easily separable via tree-space.
+2. Anomalies are few in quantity and are different which can be easily separable in tree-space.
 
 The isolation forest algorithm is original and beautiful in its simplicity; and also seems to work very well, with a few known weaknesses. The academic paper is extremely readable so you should start there.
 
 ## Datasets
 
-For this project, we'll use three data sets:
+This implementation is tested on the following datasets:
 
 * [Kaggle credit card fraud competition data set](https://www.kaggle.com/mlg-ulb/creditcardfraud); download, unzip to get `creditcard.csv`
 
@@ -21,7 +21,7 @@ For this project, we'll use three data sets:
 
 ## Visualization of normal versus anomaly separation
 
-Using [plot_anomalies.py](https://github.com/parrt/msds689/blob/master/projects/iforest/plot_anomalies.py), we can see the results of the isolation forest trying to detect anomalies. These data sets all have known targets indicating normal versus anomaly, but this information is only used during testing and not during training. 
+Using [plot_anomalies.py](plot_anomalies.py), we can see the results of the isolation forest trying to detect anomalies. These data sets all have known targets indicating normal versus anomaly, but this information is only used during testing and not during training. 
 
 <center>
 <table border="0">
@@ -66,7 +66,7 @@ The algorithm is based on the idea that the anomalies occur in isolation and it 
 <img src="images/PathLength.png" width="350">
 </td>
 <td valign="top">
-Please use this version of average path length <tt>c()</tt>, not the one in the original paper:<br>
+a different version of average path length is used <tt>c()</tt>, not the one in the original paper:<br>
 <img src="images/avgPathLength.png" width="320">
 
 <p>Then finally here's the scoring formula:<br>
